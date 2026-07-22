@@ -1,0 +1,400 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app-logo, .favicon-style-img {
+  image-rendering: -webkit-optimize-contrast; /* Webkit browsers */
+  image-rendering: crisp-edges;               /* Modern standard */
+  object-fit: contain;                        /* Prevents squishing */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F3F4F6; /* light background */
+  padding: 40px 20px;
+  color: #1A1A1A;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    gap: 55rem;
+}
+.header .header-left i{
+    font-size: 30px;
+    color: rgb(221, 221, 21);
+    /* padding-right: 25px; */
+}
+.header h1{
+    display: inline;
+    font-size: 24px;
+}
+.header .header-right button{
+    background-color: rgb(221, 221, 21);
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+} 
+.quick-add {
+    display: none;
+    gap: 10px;
+    padding: 20px 3rem;
+    flex-wrap: wrap;
+}
+
+.quick-add.active {
+    display: flex;
+}
+#qSave{
+    background-color: rgb(221, 221, 21);
+    border-radius: 20px;
+    width: 100px;
+    border: none;
+}
+
+.quick-add input,
+.quick-add select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.controls{
+    padding: 3rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.controls input{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    width: 26%;
+    border: none;
+}
+.controls .filter-buttons{
+    display: flex;
+    gap: 8px;
+}
+.filter-buttons button{
+    padding: 10px 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    width: 100px;
+    text-align: center;
+}
+
+.filter-buttons button:hover{
+  background-color: #000;
+  color: #fff;
+}
+
+/* Add Movie Button */
+.header-right {
+  display: flex;
+  align-items: flex-start;
+}
+
+.add-movie-btn {
+  background-color: #FFC107;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Quick Add Form */
+.quick-add {
+  display: none;
+  gap: 10px;
+  padding: 20px 3rem;
+  flex-wrap: wrap;
+}
+
+.quick-add.active {
+  display: flex;
+}
+
+.quick-add input,
+.quick-add select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#qSave {
+  background-color: #FFC107;
+  border-radius: 20px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Movie Cards */
+/* .movies-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+} */
+
+.movie-card {
+  margin: 1em 3rem;
+  background-color: #fff;
+  border-radius: 14px;
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.movie-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.movie-card p {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.del-btn {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 12rem;
+}
+
+.del-btn i {
+  color: #EF4444; 
+}
+
+.movie-card span {
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: #F3F4F6;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  width: fit-content;
+}
+
+span.watched {
+  color: #22C55E; 
+}
+
+span.toWatch {
+  color: #EF4444; 
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .header-right {
+    align-self: flex-start;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  .movies-grid {
+    justify-content: center;
+  }
+}
+
+/* --- Movie Grid Layout Container --- */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Strict 2-column layout for desktop */
+  gap: 15px;                             /* Grid structural spacing */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Base Movie Card Styling --- */
+.movie-card {
+  display: flex;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #F3F4F6;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Poster Image Constraints */
+.card-image-wrapper {
+  width: 160px;
+  min-width: 160px;
+  height: 220px;
+  background-color: #E5E7EB; /* Placeholder color before poster loads */
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures poster matches aspect ratio clean */
+}
+
+/* Content Container Inside the Card */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.movie-title {
+  font-size: 18px; /* H2 specification from your layout */
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+
+.options-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #6B7280;
+  cursor: pointer;
+}
+
+.movie-meta {
+  font-size: 14px; /* Body description specification */
+  color: #6B7280;
+  margin-bottom: auto; /* Pushes action buttons cleanly to the bottom */
+}
+
+/* --- Badges and Actions Panel --- */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+/* Universal badge rules */
+.badge {
+  font-size: 12px; /* Small specification */
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+/* Green "Watched" Badge Styling */
+.badge-watched {
+  background-color: #DCFCE7; /* Ultra light green background */
+  color: #22C55E;            /* Your design green token */
+}
+
+/* Yellow "To Watch" Badge Styling */
+.badge-to-watch {
+  background-color: #FEF3C7; /* Ultra light yellow background */
+  color: #FFC107;            /* Your design yellow token */
+}
+
+/* Destructive Delete Button Styling */
+.delete-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #EF4444; /* Your design red token */
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.delete-btn:hover {
+  opacity: 0.7;
+}
+
+/* --- Mobile View Adjustments (Below 768px) --- */
+@media (max-width: 768px) {
+  .movies-grid {
+    grid-template-columns: 1fr; /* Stacks to single column */
+    gap: 16px;
+  }
+
+  .movie-card {
+    align-items: center;
+  }
+
+  .card-image-wrapper {
+    width: 100px;  /* Slightly smaller posters on mobile viewports */
+    min-width: 100px;
+    height: 140px;
+  }
+  
+  .card-content {
+    padding: 12px;
+  }
+
+  .movie-title {
+    font-size: 16px;
+  }
+}
+/* DARK MODE */
+/* Light mode (default) */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: 0.3s ease;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode button {
+    background-color: #f4f4f4;
+    color: #222;
+}
+#themeToggle {
+  margin-left: 20px;
+}

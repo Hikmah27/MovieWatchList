@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Watchlist</title>
+  <link rel="stylesheet" href="movie.css">
+  <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <!-- <img src="images/video-icon.webp" alt="video-icon"> -->
+             <i class="fa fa-film-alt"></i>
+            <h1>Movie Watchlist</h1>
+        </div>
+        <div class="header-right">
+            <button>+ Add Movie</button>
+        </div>
+    </div>
+    <button id="themeToggle">🌙 Dark Mode</button>
+    <div class="quick-add" id="quickAdd">
+        <input type="text" id="qTitle" placeholder="Title">
+        <input type="text" id="qGenre" placeholder="Genre">
+        <input type="number" id="qYear" placeholder="Year">
+        <select id="qStatus">
+            <option value="toWatch">To Watch</option>
+            <option value="watched">Watched</option>
+        </select>
+        <button id="qSave">Add</button>
+    </div>
+    <div class="controls">
+        <input type="search" placeholder="Search...">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="watched">Watched</button>
+            <button class="filter-btn" data-filter="to-watch">To Watch</button>
+        </div>
+    </div>
+  <!-- Movie Cards -->
+  <!-- <main class="movies-grid movie-cards">
+    <div class="movie-card" data-status="watched">
+      <h3>Interstellar</h3>
+      <p>Sci-Fi • 2014</p>
+      <span class="watched">✔ Watched</span>
+      <button class="del-btn"><i class="fa fa-trash"></i></button>
+    </div>
+
+    <div class="movie-card" data-status="toWatch">
+      <h3>Inception</h3>
+      <p>Sci-Fi • 2010</p>
+      <span class="toWatch">To Watch</span>
+      <button class="del-btn"><i class="fa fa-trash"></i></button>
+    </div>
+  </main> -->
+  <div class="movie-cards"></div>
+  <main class="movies-grid">
+  
+  <!-- Movie Card 1: Do Not Enter -->
+  <div class="movie-card" data-status="watched">
+    <div class="card-image-wrapper">
+      <img src="do not enter.jpg" alt="Do Not Enter Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">Do Not Enter</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Horror• 2026</p>
+      
+      <!-- Status Badge & Delete Actions -->
+      <div class="card-actions">
+        <span class="badge badge-watched">
+          <span class="badge-icon">✓</span> Watched
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Card 2: Voicemails for Isabella -->
+  <div class="movie-card" data-status="to-watch">
+    <div class="card-image-wrapper">
+      <img src="voicemails for isabella.jpg" alt="Voicemails for Isabella Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">Voicemails for Isabella</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Romance• 2026</p>
+      
+      <div class="card-actions">
+        <span class="badge badge-to-watch">
+          <span class="badge-icon">🕒</span> To Watch
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Card  3The Sheep Detectives -->
+  <div class="movie-card" data-status="watched">
+    <div class="card-image-wrapper">
+      <img src="The Sheep Detectives.jpg" alt="The Sheep Detectives Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">The Sheep Detectives</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Fiction & Mystery • 2026</p>
+      
+      <div class="card-actions">
+        <span class="badge badge-watched">
+          <span class="badge-icon">✓</span> Watched
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Card 4: House of the Dragon -->
+  <div class="movie-card" data-status="to-watch">
+    <div class="card-image-wrapper">
+      <img src="house of dragon 2.jpg" alt="House of the Dragon Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">House of the Dragon</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Fantasy • 2022</p>
+      
+      <div class="card-actions">
+        <span class="badge badge-to-watch">
+          <span class="badge-icon">🕒</span> To Watch
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+<!-- Movie Card 5: jujutsu kaisen -->
+  <div class="movie-card" data-status="watched">
+    <div class="card-image-wrapper">
+      <img src="jujutsu kaisen.jpg" alt="Jujutsu Kaisen Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">Jujutsu Kaisen</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Action • 2020</p>
+      
+      <!-- Status Badge & Delete Actions -->
+      <div class="card-actions">
+        <span class="badge badge-watched">
+          <span class="badge-icon">✓</span> Watched
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Card 6: scary movie 3 -->
+  <div class="movie-card" data-status="to-watch">
+    <div class="card-image-wrapper">
+      <img src="scary movie 3.jpg" alt="Scary Movie 3 Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">Scary Movie 3</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Fantasy • 2022</p>
+      
+      <div class="card-actions">
+        <span class="badge badge-to-watch">
+          <span class="badge-icon">🕒</span> To Watch
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Card 7: enola holmes 3 -->
+  <div class="movie-card" data-status="watched">
+    <div class="card-image-wrapper">
+      <img src="enola holmes 3.jpg" alt="Enola Holmes 3 Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">Enola Holmes 3</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Crime & Action • 2022</p>
+      
+      <div class="card-actions">
+        <span class="badge badge-watched">
+          <span class="badge-icon">✓</span> Watched
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Card 8: strung -->
+  <div class="movie-card" data-status="to-watch">
+    <div class="card-image-wrapper">
+      <img src="strung.jpg" alt="Strung Poster" class="movie-poster">
+    </div>
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="movie-title">Strung</h2>
+        <button class="options-btn">⋮</button>
+      </div>
+      <p class="movie-meta">Horror • 2026</p>
+      
+      <div class="card-actions">
+        <span class="badge badge-to-watch">
+          <span class="badge-icon">🕒</span> To Watch
+        </span>
+        <button class="delete-btn">
+          <span class="delete-icon">🗑</span> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  </main>
+
+  <script src="movie.js"></script>
+</body>
+</html>
